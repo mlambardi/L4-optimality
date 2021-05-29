@@ -25,3 +25,28 @@ I simulate some 10k datasets, with p predictors and n observations. Half observa
 
 After estimating optimal coefficients, I use them to predict future data. I save both L2 and L4 losses for both L2-optimal and L4-optimal predictions.
 
+I simulated skew-normal and Gumble-distributed response Y, as two examples of skewed data.
+
+Here are the L2 losses (the lower the better) for both types of predictions.
+
+![L2 criterion, average loss for regression versus L4-optimal predictions](L2.png)
+
+See, regression outperforms L4-optimal any other prediction, as expected. The line separates situations where the best is either regression (above) or L4-optimal prediction (below).
+
+Here are the L4 losses (the lower the better) for both methods.
+
+![L4 criterion, average loss for regression versus L4-optimal predictions](L4.png)
+
+See, L4-optimal prediction makes the day with respect to classical regression. Again, regression can be better (above) otherwise L4-optimal will be (below).
+
+# Remarks
+
+Little probability calculus, along with derivatives and Cardano's formula for cubic equations are required.
+
+This is a toy example. True regression coefficients and error's variance were set equal to a custom value, but without loss of generality because this is a composite group family (can skip this).
+
+It is a cute example of relativity implied in optimality ideas, in the sense that objectives can differ, while math will straightforwardly tell the only optimal choices under that criterion.
+
+So under the L4 criterion a close form solution for optimal prediction exists, which just adjusts (:D) the intercept estimated by least squares. With L6, L8, etc analogous ajustments exist that involve fifth-order moments, seventh, etc. One can use an out-of-bag sample to estimate the optimal intercept without the need of an exact and general formula.
+
+It is interesting to note how under Linfinity loss function, the optimal prediction is mid-range regression.
